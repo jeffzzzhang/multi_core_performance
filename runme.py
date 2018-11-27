@@ -2,6 +2,7 @@
 """
 Created on Sat Jun  2 20:15:49 2018
 usage: multiprocessing
+CPU on my laptop is i5-6250, 2 cores 4 threads
 @author: talen
 """
 from multiprocessing import Pool
@@ -20,8 +21,8 @@ def monte_carlo_pi(n):
     return 4*cntr/n,time.time()-start_time
 if __name__ == '__main__':
     iter_time = 1e8
-    cpu_num = mp.cpu_count()  # mp.cpu_count() returns thread number, not necessary core number
-    core_num = 2 # core number
+    cpu_num = mp.cpu_count()  # mp.cpu_count() returns thread number, not necessary core number, it's 4 on my laptop
+    core_num = 2 # core number on my laptop is 2
     stime_single_core = time.time()
     b = monte_carlo_pi(cpu_num*int(iter_time))
     print('single core processing time:',time.time()-stime_single_core,' sec')
